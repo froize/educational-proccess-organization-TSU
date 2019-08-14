@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DbModel" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\Али\Desktop\educationalprocess.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AcademicGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="integer" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LectureHall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="integer" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course" Type="integer" />
+          <Property Name="weekday" Type="varchar" MaxLength="15" />
+          <Property Name="time_from" Type="datetime" />
+          <Property Name="time_to" Type="datetime" />
+          <Property Name="group_id" Type="integer" />
+          <Property Name="specialty_id" Type="integer" />
+          <Property Name="discipline_id" Type="integer" />
+          <Property Name="lecturer_id" Type="integer" />
+          <Property Name="hall_id" Type="integer" />
+        </EntityType>
+        <EntityType Name="Specialty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Lesson_0_0">
+          <End Role="LectureHall" Type="Self.LectureHall" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LectureHall">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="hall_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_1_0">
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="lecturer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_2_0">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="discipline_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_3_0">
+          <End Role="Specialty" Type="Self.Specialty" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="specialty_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_4_0">
+          <End Role="AcademicGroup" Type="Self.AcademicGroup" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DbModelContainer">
+          <EntitySet Name="AcademicGroup" EntityType="Self.AcademicGroup" store:Type="Tables" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" store:Type="Tables" />
+          <EntitySet Name="LectureHall" EntityType="Self.LectureHall" store:Type="Tables" />
+          <EntitySet Name="Lecturer" EntityType="Self.Lecturer" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" store:Type="Tables" />
+          <EntitySet Name="Specialty" EntityType="Self.Specialty" store:Type="Tables" />
+          <AssociationSet Name="FK_Lesson_0_0" Association="Self.FK_Lesson_0_0">
+            <End Role="LectureHall" EntitySet="LectureHall" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_1_0" Association="Self.FK_Lesson_1_0">
+            <End Role="Lecturer" EntitySet="Lecturer" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_2_0" Association="Self.FK_Lesson_2_0">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_3_0" Association="Self.FK_Lesson_3_0">
+            <End Role="Specialty" EntitySet="Specialty" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_4_0" Association="Self.FK_Lesson_4_0">
+            <End Role="AcademicGroup" EntitySet="AcademicGroup" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AcademicGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="Int64" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_4_0" FromRole="AcademicGroup" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_2_0" FromRole="Discipline" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="LectureHall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="Int64" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_0_0" FromRole="LectureHall" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_1_0" FromRole="Lecturer" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course" Type="Int64" />
+          <Property Name="weekday" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="time_from" Type="DateTime" />
+          <Property Name="time_to" Type="DateTime" />
+          <Property Name="group_id" Type="Int64" />
+          <Property Name="specialty_id" Type="Int64" />
+          <Property Name="discipline_id" Type="Int64" />
+          <Property Name="lecturer_id" Type="Int64" />
+          <Property Name="hall_id" Type="Int64" />
+          <NavigationProperty Name="AcademicGroup" Relationship="Self.FK_Lesson_4_0" FromRole="Lesson" ToRole="AcademicGroup" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Lesson_2_0" FromRole="Lesson" ToRole="Discipline" />
+          <NavigationProperty Name="LectureHall" Relationship="Self.FK_Lesson_0_0" FromRole="Lesson" ToRole="LectureHall" />
+          <NavigationProperty Name="Lecturer" Relationship="Self.FK_Lesson_1_0" FromRole="Lesson" ToRole="Lecturer" />
+          <NavigationProperty Name="Specialty" Relationship="Self.FK_Lesson_3_0" FromRole="Lesson" ToRole="Specialty" />
+        </EntityType>
+        <EntityType Name="Specialty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_3_0" FromRole="Specialty" ToRole="Lesson" />
+        </EntityType>
+        <Association Name="FK_Lesson_4_0">
+          <End Role="AcademicGroup" Type="Self.AcademicGroup" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_2_0">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="discipline_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_0_0">
+          <End Role="LectureHall" Type="Self.LectureHall" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LectureHall">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="hall_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_1_0">
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="lecturer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_3_0">
+          <End Role="Specialty" Type="Self.Specialty" Multiplicity="0..1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="specialty_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AcademicGroup" EntityType="Self.AcademicGroup" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="LectureHall" EntityType="Self.LectureHall" />
+          <EntitySet Name="Lecturer" EntityType="Self.Lecturer" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" />
+          <EntitySet Name="Specialty" EntityType="Self.Specialty" />
+          <AssociationSet Name="FK_Lesson_4_0" Association="Self.FK_Lesson_4_0">
+            <End Role="AcademicGroup" EntitySet="AcademicGroup" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_2_0" Association="Self.FK_Lesson_2_0">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_0_0" Association="Self.FK_Lesson_0_0">
+            <End Role="LectureHall" EntitySet="LectureHall" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_1_0" Association="Self.FK_Lesson_1_0">
+            <End Role="Lecturer" EntitySet="Lecturer" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_3_0" Association="Self.FK_Lesson_3_0">
+            <End Role="Specialty" EntitySet="Specialty" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DbModelContainer" CdmEntityContainer="DbEntities">
+          <EntitySetMapping Name="AcademicGroup">
+            <EntityTypeMapping TypeName="DbModel.AcademicGroup">
+              <MappingFragment StoreEntitySet="AcademicGroup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discipline">
+            <EntityTypeMapping TypeName="DbModel.Discipline">
+              <MappingFragment StoreEntitySet="Discipline">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LectureHall">
+            <EntityTypeMapping TypeName="DbModel.LectureHall">
+              <MappingFragment StoreEntitySet="LectureHall">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lecturer">
+            <EntityTypeMapping TypeName="DbModel.Lecturer">
+              <MappingFragment StoreEntitySet="Lecturer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lesson">
+            <EntityTypeMapping TypeName="DbModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="weekday" ColumnName="weekday" />
+                <ScalarProperty Name="time_from" ColumnName="time_from" />
+                <ScalarProperty Name="time_to" ColumnName="time_to" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="specialty_id" ColumnName="specialty_id" />
+                <ScalarProperty Name="discipline_id" ColumnName="discipline_id" />
+                <ScalarProperty Name="lecturer_id" ColumnName="lecturer_id" />
+                <ScalarProperty Name="hall_id" ColumnName="hall_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specialty">
+            <EntityTypeMapping TypeName="DbModel.Specialty">
+              <MappingFragment StoreEntitySet="Specialty">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

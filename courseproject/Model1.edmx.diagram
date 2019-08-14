@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c305df09a94a458eb320b3537f580fb6" Name="Diagram1">
+        <EntityTypeShape EntityType="DbModel.AcademicGroup" Width="1.5" PointX="0.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Discipline" Width="1.5" PointX="5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.LectureHall" Width="1.5" PointX="0.625" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Lecturer" Width="1.5" PointX="6.875" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Lesson" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.Specialty" Width="1.5" PointX="6.875" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="DbModel.FK_Lesson_4_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.FK_Lesson_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.FK_Lesson_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.FK_Lesson_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.FK_Lesson_3_0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

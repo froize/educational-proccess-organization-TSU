@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="courseproject.AddEditGroups">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAAIACAAAQCAAAAAAAwAAAAAAAACAA=</HashCode>
+      <FileName>AddEditGroups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.AddEditDisciplines">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAAIACAAAACAAEAAAAQAAAAAAAACIA=</HashCode>
+      <FileName>AddEditDisciplines.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.AddEditHalls">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAAIACAAAAiAAAAAAAQAAAABAAACAA=</HashCode>
+      <FileName>AddEditHalls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.AddEditLecturers">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAIIACAAAACAAAAAAAQAAABAAAACAA=</HashCode>
+      <FileName>AddEditLecturers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.AddEditLesson">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AxAAACCABCAAAAACIBCJAJBCAAAEAAAAAAACAAAAFAI=</HashCode>
+      <FileName>AddEditLesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.AddEditSpecialties">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAAACAAAAAAIACAAAACAAAAAAAQAAgAAAAACAA=</HashCode>
+      <FileName>AddEditSpecialties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Disciplines">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACAACBQAAAAAADgAABCAEEQAAAAAAAAAIiAAAA=</HashCode>
+      <FileName>Disciplines.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Form1">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAABABAqIUABAgAACIAIACEAEASCAkAAyABAQCBVI=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Groups">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACBQAAAAABDgAABCAEAQAAAgAAAAAKCAAAA=</HashCode>
+      <FileName>Groups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Lect">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACBQAQAAAADgAABCAEAQAAAAAAABAIiAAAA=</HashCode>
+      <FileName>Lect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Lecture_Halls">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACBQAAAAAADgIABCAEAQAAAAAAAABKCAAAA=</HashCode>
+      <FileName>Lecture_Halls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Lessons">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAAAACEAiBQAAABIAjoAABDAEEwAAAgBAgABgCCTAI=</HashCode>
+      <FileName>Lessons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="courseproject.Specialties">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACBQAAABAADgAABCAEAQAAAAAAgAAIiAAAA=</HashCode>
+      <FileName>Specialties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
